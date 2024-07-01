@@ -1,6 +1,5 @@
 import React from "react"
 import { Box, Typography } from "@mui/material"
-import logo from "../assets/logo.png"
 import { useTheme } from "@mui/material/styles"
 import SearchIcon from "@mui/icons-material/Search"
 import PercentIcon from "@mui/icons-material/Percent"
@@ -24,7 +23,7 @@ const Header = () => {
 							border: "1px solid white",
 						}}
 						alt="Logo"
-						src={logo}
+						src="/logo.png"
 					/>
 					<Box sx={{ display: "flex", alignItems: "baseline" }}>
 						<Typography
