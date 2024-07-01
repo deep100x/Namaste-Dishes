@@ -1,6 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "@mui/material/styles"
 import theme from "./theme/theme"
+import "./index.css"
 import Body from "./components/Body"
 import Header from "./components/Header"
 

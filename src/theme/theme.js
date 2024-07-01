@@ -82,7 +82,7 @@ const theme = createTheme({
     darkmd: "#43464a",
     gray: "#676a6d",
     green: "#158840",
-    orange: "#f15700",
+    orange: "#e58c33",
   },
   defaultBorder: "1.5px solid rgba(2, 6, 12, 0.1)",
   breakpoints: {
