@@ -4,16 +4,18 @@ import { Grid, Button, Container, Box } from "@mui/material"
 import resList from "../utils/mockData"
 
 const Body = () => {
-	const [listOfRestaurants, setListOfRestaurants] = useState(resList)
+	const [listOfRestaurants, setListOfRestaurants] = useState([])
 
 	useEffect(() => {
 		fetchData()
 	}, [])
 
 	const fetchData = async () => {
-		const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
+		const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING")
 		const json = await data.json()
 		console.log(json)
+		console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+		setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 	}
 
 	return (
@@ -23,7 +25,7 @@ const Body = () => {
 					variant="contained"
 					color="primary"
 					onClick={() => {
-						const filteredList = listOfRestaurants.filter((res) => res.data.avgRating > 4)
+						const filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4)
 						setListOfRestaurants(filteredList)
 					}}
 				>
@@ -32,7 +34,7 @@ const Body = () => {
 			</Box>
 			<Grid container spacing={2}>
 				{listOfRestaurants.map((restaurant) => (
-					<RestaurantCard key={restaurant.data.id} resData={restaurant} />
+					<RestaurantCard key={restaurant.info.id} resData={restaurant} />
 				))}
 			</Grid>
 		</Container>

@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
 	const { resData } = props
 
 	// Optional Chaining
-	const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, deliveryTime } = resData?.data
+	const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } = resData?.info
 
 	return (
 		<Grid item xs={12} sm={6} md={4} lg={3}>
@@ -42,17 +42,17 @@ const RestaurantCard = (props) => {
 						{name}
 					</Typography>
 					<Box sx={{ color: theme.palette.darkmd, display: "flex", alignItems: "center", gap: 0.5 }}>
-						<Typography sx={{ display: "flex", alignItems: "center", gap: 0.5, fontWeight: 600 }}>
+						<Typography variant="body2" sx={{ display: "flex", alignItems: "center", gap: 0.5, fontWeight: 600 }}>
 							<StarIcon sx={{ color: "#fff", backgroundColor: "#158840", fontSize: "15px", padding: "2px", borderRadius: "50%" }} />
 							{avgRating}
 						</Typography>
 						•
 						<Typography variant="body2" sx={{ fontWeight: 600 }}>
-							{deliveryTime}-{deliveryTime + 5} mins
+							{sla.slaString}
 						</Typography>
 					</Box>
 					{/* <Typography color="textSecondary" variant="body2">
-						₹{costForTwo / 100}
+						₹{costForTwo }
 					</Typography> */}
 					<Typography
 						variant="body2"
