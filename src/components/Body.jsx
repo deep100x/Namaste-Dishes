@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import RestaurantCard from "./RestaurantCard"
 import { Grid, Button, Container, Box } from "@mui/material"
 import resList from "../utils/mockData"
+import Shimmer from "./Shimmer"
 
 const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([])
@@ -19,7 +20,13 @@ const Body = () => {
 		fetchData()
 	}, [])
 
-	return (
+	// if (listOfRestaurants.length === 0) {
+	// 	return <Shimmer showHeader={true} />
+	// }
+
+	return listOfRestaurants.length === 0 ? (
+		<Shimmer showHeader={true} />
+	) : (
 		<Container sx={{ pt: 2 }}>
 			<Box className="Search" sx={{ p: 2 }}>
 				<Button
