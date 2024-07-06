@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
 	const { resData } = props
 
 	// Optional Chaining
-	const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } = resData?.info
+	const { cloudinaryImageId, name, avgRating, cuisines, aggregatedDiscountInfoV3, sla } = resData?.info
 
 	return (
 		<Grid item xs={12} sm={6} md={4} lg={3}>
@@ -21,11 +21,16 @@ const RestaurantCard = (props) => {
 							width: "100%",
 							left: 0,
 							bottom: 0,
-							height: "80px",
+							height: "120px",
 							background: "linear-gradient(rgba(27, 30, 36, 0) 0%, rgb(27, 30, 36) 84.21%);",
 							borderRadius: "0 0 20px 20px ",
 						}}
 					/>
+					<Typography component="div" sx={{ fontWeight: 800, fontSize: "20px", position: "absolute", left: 17, bottom: 6, color: "white" }} noWrap>
+						{aggregatedDiscountInfoV3.header}
+						&nbsp;
+						{aggregatedDiscountInfoV3.subHeader}
+					</Typography>
 					<CardMedia
 						component="img"
 						sx={{
