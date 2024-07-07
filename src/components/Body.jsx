@@ -8,12 +8,18 @@ const Body = () => {
 	const [listOfRestaurants, setListOfRestaurants] = useState([])
 
 	const fetchData = async () => {
-		const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING")
-		const json = await data.json()
-		console.log(json)
-		console.log("json", json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-		setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-		console.log("list", listOfRestaurants)
+		try {
+			const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING")
+			const json = await data.json()
+			console.log("json", json)
+
+			let resList = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+			console.log("json", resList)
+			setListOfRestaurants(resList || [])
+			console.log("listOfRestaurants", listOfRestaurants)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	useEffect(() => {

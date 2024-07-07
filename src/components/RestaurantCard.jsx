@@ -27,9 +27,9 @@ const RestaurantCard = (props) => {
 						}}
 					/>
 					<Typography component="div" sx={{ fontWeight: 800, fontSize: "20px", position: "absolute", left: 17, bottom: 6, color: "white" }} noWrap>
-						{aggregatedDiscountInfoV3.header}
+						{aggregatedDiscountInfoV3?.header}
 						&nbsp;
-						{aggregatedDiscountInfoV3.subHeader}
+						{aggregatedDiscountInfoV3?.subHeader}
 					</Typography>
 					<CardMedia
 						component="img"
@@ -53,7 +53,7 @@ const RestaurantCard = (props) => {
 						</Typography>
 						•
 						<Typography variant="body2" sx={{ fontWeight: 600 }}>
-							{sla.slaString}
+							{sla?.slaString}
 						</Typography>
 					</Box>
 					{/* <Typography color="textSecondary" variant="body2">
