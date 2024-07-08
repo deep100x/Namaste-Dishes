@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "'Basis Grotesque Arabic Pro', sans-serif",
     fontSize: 16,
     h1: {
       fontSize: "2.75rem",

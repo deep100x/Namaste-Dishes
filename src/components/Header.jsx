@@ -1,14 +1,14 @@
-import React from "react"
-import { Box, Typography } from "@mui/material"
+import React, { useState } from "react"
+import { Box, Button, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import SearchIcon from "@mui/icons-material/Search"
 import PercentIcon from "@mui/icons-material/Percent"
 import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt"
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined"
 
 const Header = () => {
 	const theme = useTheme()
+	const [login, setLogin] = useState("Login")
 
 	return (
 		<Box>
@@ -80,10 +80,15 @@ const Header = () => {
 						<PsychologyAltIcon sx={{ fontSize: "25px", padding: "2px", borderRadius: "50%" }} />
 						Help
 					</Typography>
-					<Typography variant="body2" sx={{ display: "flex", alignItems: "center", fontWeight: 600, color: theme.palette.darkmd, cursor: "pointer" }}>
-						<AccountCircleOutlinedIcon sx={{ fontSize: "25px", padding: "2px", borderRadius: "50%" }} />
-						Sign In
-					</Typography>
+					<Button
+						variant="contained"
+						size="medium"
+						onClick={() => {
+							login === "Login" ? setLogin("Logout") : setLogin("Login")
+						}}
+					>
+						{login}
+					</Button>
 					<Typography variant="body2" sx={{ display: "flex", alignItems: "center", fontWeight: 600, color: theme.palette.darkmd, cursor: "pointer" }}>
 						<LocalMallOutlinedIcon sx={{ fontSize: "25px", padding: "2px", borderRadius: "50%" }} />
 						Cart
