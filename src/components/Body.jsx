@@ -31,7 +31,7 @@ const Body = () => {
 	// }
 
 	return listOfRestaurants.length === 0 ? (
-		<Shimmer showHeader={true} />
+		<Shimmer showHeader showCards />
 	) : (
 		<Container sx={{ pt: 2 }}>
 			<Box className="Search" sx={{ p: 2 }}>
