@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search"
 import PercentIcon from "@mui/icons-material/Percent"
 import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt"
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 	const theme = useTheme()
@@ -68,7 +69,19 @@ const Header = () => {
 					</Box>
 				</Box>
 				<Box sx={{ display: "flex", gap: 5 }}>
-					<Typography variant="body2" sx={{ display: "flex", alignItems: "center", fontWeight: 600, color: theme.palette.darkmd, cursor: "pointer" }}>
+					<Typography
+						component={Link}
+						to="/search"
+						variant="body2"
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							fontWeight: 600,
+							color: theme.palette.darkmd,
+							cursor: "pointer",
+							textDecoration: "none",
+						}}
+					>
 						<SearchIcon sx={{ fontSize: "25px", padding: "2px", borderRadius: "50%" }} />
 						Search
 					</Typography>
